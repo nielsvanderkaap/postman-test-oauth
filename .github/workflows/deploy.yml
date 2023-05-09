@@ -22,7 +22,7 @@ jobs:
           allow-no-subscriptions: true
 
       - name: 'Run az commands'
-        run: az account get-access-token --resource=https://backend-app.i8cnl.onmicrosoft.com/.default --query accessToken --output tsv
+        run: az account get-access-token --scope=https://backend-app.i8cnl.onmicrosoft.com/.default --query accessToken --output tsv
       # Checkout Source Code
       - uses: actions/checkout@main
 
