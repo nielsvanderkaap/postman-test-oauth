@@ -9,10 +9,9 @@ permissions:
   contents: read
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
-    outputs:
-      matrix: ${{ steps.setup-matrix.outputs.matrix }}
+    environment: development
     steps:
 
       # Checkout Source Code
