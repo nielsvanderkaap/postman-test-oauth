@@ -1,0 +1,24 @@
+name: Deploy - Async Messaging
+
+on:
+  push:
+  workflow_dispatch:
+
+# Required with 'Federal Credentials' to authenticate GitHub Actions with Azure Active Directory.
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.setup-matrix.outputs.matrix }}
+    steps:
+
+      # Checkout Source Code
+      - uses: actions/checkout@main
+
+      - uses: matt-ball/newman-action@master
+        with:
+          collection: ../tests/TestCollection.postman_collection.json
+          envVar: '[{ "key": "access-token", "value": "http://localhost:3000" }]'
