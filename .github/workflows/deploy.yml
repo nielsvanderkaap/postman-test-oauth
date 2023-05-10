@@ -14,6 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: development
     steps:
+      - uses: actions/checkout@main      
       - name: 'Az CLI login'
         uses: azure/login@v1
         with:
@@ -23,6 +24,7 @@ jobs:
 
       - name: 'Run az commands'
         run: az account get-access-token --scope=https://backend-app.i8cnl.onmicrosoft.com/.default --query accessToken --output tsv
+
 
       - uses: matt-ball/newman-action@master
         with:
