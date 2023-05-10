@@ -15,7 +15,7 @@ jobs:
     environment: development
     steps:
       - uses: actions/checkout@main
-      
+
       - name: 'Az CLI login'
         uses: azure/login@v1
         with:
@@ -23,13 +23,14 @@ jobs:
           tenant-id: ${{ vars.AZURE_TENANT_ID }}
           allow-no-subscriptions: true
 
-      - name: 'Retrieve JWT for https://backend-app.i8cnl.onmicrosoft.com/.default'
+      - name: 'Retrieve JWT for Api'
         id: get-jwt
         run: |
           accessToken=$(az account get-access-token --scope=https://backend-app.i8cnl.onmicrosoft.com/.default --query accessToken --output tsv)
           echo "JWT=${accessToken}" >> $GITHUB_OUTPUT
       
-      - uses: matt-ball/newman-action@master
+      - name: 'Execute Newman'
+        uses: matt-ball/newman-action@master
         with:
           collection: ./tests/TestCollection.postman_collection.json
           envVar: '[{ "key": "access-token", "value": "Bearer ${{ steps.get-jwt.outputs.JWT }}" }]'
