@@ -104,7 +104,7 @@
 			"script": {
 				"type": "text/javascript",
 				"exec": [
-					"pm.request.addHeader(\"Authorization: {{accessToken}}\")"
+					"pm.request.addHeader(\"Authorization: {{access-token}}\")"
 				]
 			}
 		},
