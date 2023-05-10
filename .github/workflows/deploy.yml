@@ -25,7 +25,7 @@ jobs:
       - name: 'Retrieve JWT for https://backend-app.i8cnl.onmicrosoft.com/.default'
         id: get-jwt
         run: |
-          accessToken=$(echo az account get-access-token --scope=https://backend-app.i8cnl.onmicrosoft.com/.default --query accessToken --output json | jq -r '.accessToken')
+          accessToken=$(echo az account get-access-token --scope=https://backend-app.i8cnl.onmicrosoft.com/.default --query accessToken | jq -r .accessToken)
           echo "JWT=${accessToken}" >> $GITHUB_OUTPUT
 
 
