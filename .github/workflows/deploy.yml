@@ -23,7 +23,8 @@ jobs:
           allow-no-subscriptions: true
 
       - name: 'Run az commands'
-        run: az account get-access-token --scope=https://backend-app.i8cnl.onmicrosoft.com/.default --query accessToken --output tsv
+        run: |          
+          echo "JWT=$((az account get-access-token --scope=https://backend-app.i8cnl.onmicrosoft.com/.default --query accessToken)| jq -r '.accessToken')" >> $GITHUB_OUTPUT
 
 
       - uses: matt-ball/newman-action@master
