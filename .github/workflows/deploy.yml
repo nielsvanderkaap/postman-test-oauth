@@ -22,10 +22,10 @@ jobs:
           tenant-id: ${{ vars.AZURE_TENANT_ID }}
           allow-no-subscriptions: true
 
-      - name: 'Tetrieve JWT for https://backend-app.i8cnl.onmicrosoft.com/.default'
+      - name: 'Retrieve JWT for https://backend-app.i8cnl.onmicrosoft.com/.default'
         id: get-jwt
         run: |          
-          echo "JWT=$(az account get-access-token --scope=https://backend-app.i8cnl.onmicrosoft.com/.default --query accessToken --output tsv)" >> $GITHUB_OUTPUT
+          echo "JWT=($(az account get-access-token --scope=https://backend-app.i8cnl.onmicrosoft.com/.default --query accessToken --output tsv) | jq '.accessToken')" >> $GITHUB_OUTPUT
 
 
       - uses: matt-ball/newman-action@master
