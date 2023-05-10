@@ -22,7 +22,8 @@ jobs:
           tenant-id: ${{ vars.AZURE_TENANT_ID }}
           allow-no-subscriptions: true
 
-      - name: 'Run az commands'
+      - name: 'Tetrieve JWT for https://backend-app.i8cnl.onmicrosoft.com/.default'
+        id: get-jwt
         run: |          
           echo "JWT=$(az account get-access-token --scope=https://backend-app.i8cnl.onmicrosoft.com/.default --query accessToken --output tsv)" >> $GITHUB_OUTPUT
 
@@ -30,4 +31,4 @@ jobs:
       - uses: matt-ball/newman-action@master
         with:
           collection: ./tests/TestCollection.postman_collection.json
-          envVar: '[{ "key": "access-token", "value": "http://localhost:3000" }]'
+          envVar: '[{ "key": "access-token", "value": "Bearer ${{ steps.get-jwt.outputs.JWT }}" }]'

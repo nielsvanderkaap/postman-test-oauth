@@ -22,15 +22,16 @@
 				}
 			],
 			"request": {
-				"method": "GET",
+				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "http://www.github.com",
-					"protocol": "http",
+					"raw": "https://eoqfc8lg2otu6t6.m.pipedream.net",
+					"protocol": "https",
 					"host": [
-						"www",
-						"github",
-						"com"
+						"eoqfc8lg2otu6t6",
+						"m",
+						"pipedream",
+						"net"
 					]
 				}
 			},
@@ -115,6 +116,13 @@
 					""
 				]
 			}
+		}
+	],
+	"variable": [
+		{
+			"key": "access-token",
+			"value": "",
+			"type": "default"
 		}
 	]
 }
