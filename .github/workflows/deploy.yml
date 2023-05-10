@@ -26,7 +26,7 @@ jobs:
         id: get-jwt
         run: |
           accessToken=$(az account get-access-token --scope=https://backend-app.i8cnl.onmicrosoft.com/.default --query accessToken --output json)
-          echo "JWT=$(accessToken)" >> $GITHUB_OUTPUT
+          echo "JWT=${accessToken}" >> $GITHUB_OUTPUT
 
 
       - uses: matt-ball/newman-action@master
