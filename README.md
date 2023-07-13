@@ -8,4 +8,4 @@ The user logs in through the browser, via a public AAD Application Registration.
 Automated operation relies on the OAuth 2.0 Client Credentials flow.
 Here, the Actions workflow authenticates against an Application Registration using Federated Credentials.
 
-[This]() blog post describes the setup in more detail.
+[This](https://i8c.nl/blog/2023/06/09/secure-api-testing-using-postman-aad/) blog post describes the setup in more detail.
