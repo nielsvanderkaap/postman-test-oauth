@@ -27,6 +27,7 @@ jobs:
         id: get-jwt
         run: |
           accessToken=$(az account get-access-token --scope=api://98a497ac-7807-4d74-90b4-3aa77c6efa0d/.default --query accessToken --output tsv)
+          echo "JWT=${accessToken}"
           echo "JWT=${accessToken}" >> $GITHUB_OUTPUT
       
       - name: 'Execute Newman'
