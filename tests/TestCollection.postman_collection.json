@@ -1,12 +1,13 @@
 {
 	"info": {
-		"_postman_id": "c16976f4-1eb8-45d6-b5ec-ea7a88b7d847",
+		"_postman_id": "5fdf803c-31c1-49cd-8cd6-bef866c9878b",
 		"name": "TestCollection",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2607541"
 	},
 	"item": [
 		{
-			"name": "New Request",
+			"name": "testcall",
 			"event": [
 				{
 					"listen": "test",
@@ -15,23 +16,30 @@
 							"pm.test(\"Check response\", function() {\r",
 							"\r",
 							"    pm.response.to.have.status(200);\r",
-							"});"
+							"   const responseTxt = pm.response.text()\r",
+							"    pm.expect(responseTxt).to.eql(\"Hello Niels van der Kaap\")\r",
+							"});\r",
+							"\r",
+							"console.log(\"test\")"
 						],
 						"type": "text/javascript"
 					}
 				}
 			],
 			"request": {
-				"method": "POST",
+				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://eoqfc8lg2otu6t6.m.pipedream.net",
+					"raw": "https://we-nvdk-apim.azure-api.net/test-api/",
 					"protocol": "https",
 					"host": [
-						"eoqfc8lg2otu6t6",
-						"m",
-						"pipedream",
+						"we-nvdk-apim",
+						"azure-api",
 						"net"
+					],
+					"path": [
+						"test-api",
+						""
 					]
 				}
 			},
@@ -42,13 +50,23 @@
 		"type": "oauth2",
 		"oauth2": [
 			{
-				"key": "clientId",
-				"value": "client-id-postman",
+				"key": "scope",
+				"value": "api://98a497ac-7807-4d74-90b4-3aa77c6efa0d/Files.Read",
 				"type": "string"
 			},
 			{
-				"key": "scope",
-				"value": "api://f636038f-7417-43cf-921f-15f0251136c9/.default",
+				"key": "clientId",
+				"value": "51bd042d-a559-4f2c-9521-d06939bd01b3",
+				"type": "string"
+			},
+			{
+				"key": "accessTokenUrl",
+				"value": "https://login.microsoftonline.com/49c3d703-3579-47bf-a888-7c913fbdced9/oauth2/v2.0/token",
+				"type": "string"
+			},
+			{
+				"key": "authUrl",
+				"value": "https://login.microsoftonline.com/49c3d703-3579-47bf-a888-7c913fbdced9/oauth2/v2.0/authorize",
 				"type": "string"
 			},
 			{
@@ -59,16 +77,6 @@
 			{
 				"key": "clientSecret",
 				"value": "",
-				"type": "string"
-			},
-			{
-				"key": "accessTokenUrl",
-				"value": "https://login.microsoftonline.com/b2ac0918-d2b1-4aee-8c92-568bbefd6330/oauth2/v2.0/token",
-				"type": "string"
-			},
-			{
-				"key": "authUrl",
-				"value": "https://login.microsoftonline.com/b2ac0918-d2b1-4aee-8c92-568bbefd6330/oauth2/v2.0/authorize",
 				"type": "string"
 			},
 			{
