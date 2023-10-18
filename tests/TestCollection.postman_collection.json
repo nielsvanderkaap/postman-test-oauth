@@ -30,16 +30,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://we-nvdk-apim.azure-api.net/test-api/",
+					"raw": "https://eoqfc8lg2otu6t6.m.pipedream.net",
 					"protocol": "https",
 					"host": [
-						"we-nvdk-apim",
-						"azure-api",
+						"eoqfc8lg2otu6t6",
+						"m",
+						"pipedream",
 						"net"
-					],
-					"path": [
-						"test-api",
-						""
 					]
 				}
 			},
