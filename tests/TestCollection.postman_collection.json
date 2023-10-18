@@ -17,7 +17,7 @@
 							"\r",
 							"    pm.response.to.have.status(200);\r",
 							"   const responseTxt = pm.response.text()\r",
-							"   console.log(responseTxt)\r",
+							"   console.log(\"Response payload: \" + responseTxt)\r",
 							"    pm.expect(responseTxt).to.oneOf([\"Hello Niels van der Kaap\", \"Hello Application\"])\r",
 							"});\r",
 							"\r",
