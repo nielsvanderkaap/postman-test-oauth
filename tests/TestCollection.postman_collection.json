@@ -17,7 +17,7 @@
 							"\r",
 							"    pm.response.to.have.status(200);\r",
 							"   const responseTxt = pm.response.text()\r",
-							"    pm.expect(responseTxt).to.eql(\"Hello Niels van der Kaap\")\r",
+							"    pm.expect(responseTxt).to.oneOf([\"Hello Niels van der Kaap\", \"Hello Application\"])\r",
 							"});\r",
 							"\r",
 							"console.log(\"test\")"
@@ -30,13 +30,16 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://eoqfc8lg2otu6t6.m.pipedream.net",
+					"raw": "https://we-nvdk-apim.azure-api.net/test-api/",
 					"protocol": "https",
 					"host": [
-						"eoqfc8lg2otu6t6",
-						"m",
-						"pipedream",
+						"we-nvdk-apim",
+						"azure-api",
 						"net"
+					],
+					"path": [
+						"test-api",
+						""
 					]
 				}
 			},
